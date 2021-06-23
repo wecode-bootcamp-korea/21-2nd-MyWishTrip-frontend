@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { flexCenter } from '../../style/mixin';
 
 const Footer = () => (
   <FooterWrapper>
@@ -156,9 +157,7 @@ const FooterLink = styled.a`
 `;
 
 const FooterBoxBottom = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${flexCenter('flex', 'space-between', 'center')}
   flex-wrap: wrap;
   padding: 16px 0 0;
   border-top: 1px solid #e9ecef;
