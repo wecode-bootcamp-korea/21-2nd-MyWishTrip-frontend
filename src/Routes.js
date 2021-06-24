@@ -7,6 +7,8 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import LoginEmail from './Pages/Login/LoginEmail';
 import Category from './Pages/Category/Category';
+import Detail from './Pages/Detail/Detail';
+import Modal from './Components/Detail/Modal';
 
 function Routes() {
   return (
@@ -20,6 +22,8 @@ function Routes() {
         <Route exact path="/signin_email" component={LoginEmail} />
         <Route exact path="/siginin" component={Login} />
         <Route exact path="/product" component={Category} />
+        <Route exact path="/detail" component={Detail} />
+        <Route exact path="/modal" component={Modal} />
       </Switch>
       <Footer />
     </Router>

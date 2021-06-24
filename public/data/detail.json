@@ -1,0 +1,91 @@
+{
+  "product": {
+    "name": "[경상도]울릉도와 독도 3박4일여행",
+    "price": "300000.00",
+    "discount": 0.2,
+    "main_image": "https://i.imgur.com/Rhsl56s.png",
+    "detail_image": "https://i.imgur.com/Rhsl56s.png",
+    "total_score": 4.4,
+    "total_review": 5,
+    "reviews": [
+      {
+        "contents": "a",
+        "score": 5,
+        "manager_text": "b",
+        "create_at": "2021-06-24T10:33:41.304",
+        "update_at": "2021-06-24T10:33:41.304",
+        "images": [
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=81"
+        ]
+      },
+      {
+        "contents": "a",
+        "score": 5,
+        "manager_text": "b",
+        "create_at": "2021-06-24T10:33:41.305",
+        "update_at": "2021-06-24T10:33:41.305",
+        "images": [
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=82",
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=83",
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=84"
+        ]
+      },
+      {
+        "contents": "a",
+        "score": 4,
+        "manager_text": "b",
+        "create_at": "2021-06-24T10:33:41.306",
+        "update_at": "2021-06-24T10:33:41.306",
+        "images": [
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=85",
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=86"
+        ]
+      },
+      {
+        "contents": "a",
+        "score": 4,
+        "manager_text": "b",
+        "create_at": "2021-06-24T10:33:41.307",
+        "update_at": "2021-06-24T10:33:41.307",
+        "images": [
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=87",
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=88"
+        ]
+      },
+      {
+        "contents": "a",
+        "score": 4,
+        "manager_text": "b",
+        "create_at": "2021-06-24T10:33:41.309",
+        "update_at": "2021-06-24T10:33:41.309",
+        "images": [
+          "https://images.unsplash.com/photo-1595737335975-2160c924caf2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=89"
+        ]
+      }
+    ],
+    "options": [
+      {
+        "name": "간편식 부리또(카레맛)",
+        "price": "1000.00",
+        "dates": ["2021-06-26", "2021-06-27", "2021-06-28", "2021-06-29"]
+      },
+      {
+        "name": "쿠지라이식 라면",
+        "price": "1000.00",
+        "dates": []
+      },
+      {
+        "name": "과즙 가득한 오렌지 주스 500ml2",
+        "price": "1000.00",
+        "dates": []
+      },
+      {
+        "name": "미트볼 가득 파스타2",
+        "price": "1000.00",
+        "dates": []
+      }
+    ]
+  }
+}
