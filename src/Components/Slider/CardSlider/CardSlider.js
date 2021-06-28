@@ -81,9 +81,7 @@ const Title = styled.h2`
 `;
 
 const SlideTitle = styled.span`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  ${flexCenter('flex', 'space-between', 'flex-end')}
   width: 100%;
 `;
 
