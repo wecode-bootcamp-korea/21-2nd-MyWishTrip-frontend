@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import LoginEmail from './Pages/Login/LoginEmail';
+import Category from './Pages/Category/Category';
 
 function Routes() {
   return (
@@ -17,6 +18,8 @@ function Routes() {
         <Route exact path="/signup_email" component={SignupEmail} />
         <Route exact path="/signin" component={Login} />
         <Route exact path="/signin_email" component={LoginEmail} />
+        <Route exact path="/siginin" component={Login} />
+        <Route exact path="/product" component={Category} />
       </Switch>
       <Footer />
     </Router>
