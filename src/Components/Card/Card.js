@@ -6,66 +6,52 @@ const Card = props => {
   const [isLiked, setLike] = useState(false);
 
   return (
-    props.cardData && (
-      <SlideContainer>
-        {props.cardData.map((item, index) => (
-          <CardContainer key={index}>
-            <CardImage src={item.main_image} alt={item.name} />
-            <LikeImage
-              src={
-                isLiked
-                  ? 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiNGQTVCNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjRkZGIiBkPSJNMTIuMTA1IDE5Ljk0bDcuMTg4LTcuMTg5YTQuODMzIDQuODMzIDAgMSAwLTYuODM1LTYuODM1bC0uMzUzLjM1My0uMzU0LS4zNTNhNC44MzMgNC44MzMgMCAxIDAtNi44MzUgNi44MzVsNy4xODkgNy4xODl6Ii8+Cjwvc3ZnPgo='
-                  : 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEyLjEwNSAxOS41ODZsNy4wMTItNy4wMTJhNC41ODMgNC41ODMgMCAxIDAtNi40ODItNi40ODJsLS41My41My0uNTMtLjUzYTQuNTgzIDQuNTgzIDAgMCAwLTYuNDgzIDYuNDgybDcuMDEzIDcuMDEyeiIvPgo8L3N2Zz4K'
-              }
-              alt="like-heart"
-              onClick={() => setLike(!isLiked)}
-            />
-            <CardInfoBox>
-              <CardTitle>
-                <CardCategory>{`${item.main_category}·${item.sub_category}`}</CardCategory>
-                <CardName>{item.name}</CardName>
-              </CardTitle>
-              <div>
-                <StarsRating>{`★★★★★`}</StarsRating>
-                <Rating>{`${item.average_score}`}</Rating>
-                <PriceBox>
-                  <OriginPrice>{`${item.price.toLocaleString()}원`}</OriginPrice>
-                  <DiscountedPrice>{`${(
-                    item.price -
-                    item.price * item.discount
-                  ).toLocaleString()}원`}</DiscountedPrice>
-                  <MemberLimit> / 1인</MemberLimit>
-                </PriceBox>
-              </div>
-            </CardInfoBox>
-          </CardContainer>
-        ))}
-      </SlideContainer>
-    )
+    <CardContainer>
+      <CardImage src={props.data.main_image} alt={props.data.name} />
+      <LikeImage
+        src={
+          isLiked
+            ? 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiNGQTVCNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjRkZGIiBkPSJNMTIuMTA1IDE5Ljk0bDcuMTg4LTcuMTg5YTQuODMzIDQuODMzIDAgMSAwLTYuODM1LTYuODM1bC0uMzUzLjM1My0uMzU0LS4zNTNhNC44MzMgNC44MzMgMCAxIDAtNi44MzUgNi44MzVsNy4xODkgNy4xODl6Ii8+Cjwvc3ZnPgo='
+            : 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEyLjEwNSAxOS41ODZsNy4wMTItNy4wMTJhNC41ODMgNC41ODMgMCAxIDAtNi40ODItNi40ODJsLS41My41My0uNTMtLjUzYTQuNTgzIDQuNTgzIDAgMCAwLTYuNDgzIDYuNDgybDcuMDEzIDcuMDEyeiIvPgo8L3N2Zz4K'
+        }
+        alt="like-heart"
+        onClick={() => setLike(!isLiked)}
+      />
+      <CardInfoBox>
+        <CardTitle>
+          <CardCategory>{`${props.data.main_category}·${props.data.sub_category}`}</CardCategory>
+          <CardName>{props.data.name}</CardName>
+        </CardTitle>
+        <div>
+          <StarsRating>{`★★★★★`}</StarsRating>
+          <Rating>{`${props.data.average_score}`}</Rating>
+          <PriceBox>
+            <OriginPrice>{`${props.data.price.toLocaleString()}원`}</OriginPrice>
+            <DiscountedPrice>{`${(
+              props.data.price -
+              props.data.price * props.data.discount
+            ).toLocaleString()}원`}</DiscountedPrice>
+            <MemberLimit> / 1인</MemberLimit>
+          </PriceBox>
+        </div>
+      </CardInfoBox>
+    </CardContainer>
   );
 };
-
-const SlideContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 20px;
-`;
 
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 311px;
-  width: 270px;
+  width: 250px;
   position: relative;
-  margin: 20px 0px 0px 20px;
   border: 1px solid ${props => props.theme.lineGray};
   border-radius: 4px;
 `;
 
 const CardImage = styled.img`
   height: 166px;
-  width: 100%;
+  width: 250px;
   border: none;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;

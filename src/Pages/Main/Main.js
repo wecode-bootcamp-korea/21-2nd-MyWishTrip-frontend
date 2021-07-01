@@ -4,28 +4,32 @@ import BannerSlider from '../../Components/Slider/BannerSlider/BannerSlider';
 import CardSlider from '../../Components/Slider/CardSlider/CardSlider';
 import CategorySlide from '../../Components/Slider/CategorySlide/CategorySlide';
 import { flexCenter } from '../../style/mixin';
+import { RegionApi, SlideApi } from '../../api';
+import Loader from '../../Components/Loader/Loader';
 
 const Main = () => {
   const [slideData, setSlideData] = useState([]);
+  const [regionData, setRegionData] = useState([]);
 
   const fetchData = () => {
-    fetch('/data/CardSliderData.json')
-      .then(response => response.json())
-      .then(data => setSlideData(data));
+    SlideApi().then(response => setSlideData(response.data.products));
+  };
+
+  const regionFetch = () => {
+    RegionApi().then(response => setRegionData(response.data.regions));
   };
 
   useEffect(() => {
     fetchData();
+    regionFetch();
   }, []);
 
   return (
     slideData && (
       <Container>
         <ColorBackground />
-        <CategorySlide slideData={slideData} />
+        <CategorySlide regionData={regionData} />
         <BannerSlider />
-        <CardSlider slideData={slideData} />
-        <CardSlider slideData={slideData} />
         <CardSlider slideData={slideData} />
       </Container>
     )

@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { flexCenter } from '../../../style/mixin';
 
 const CategoryCheck = props => {
-  // const [isChecked, setIsChecked] = useState(arr)
-
   return (
     <RatingContainer>
       <RatingTitle>평점</RatingTitle>
