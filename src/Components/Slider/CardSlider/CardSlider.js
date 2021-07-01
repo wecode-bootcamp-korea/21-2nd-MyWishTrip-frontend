@@ -4,8 +4,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
 import { flexCenter } from '../../../style/mixin';
+import Card from '../../Card/Card';
 
-export default slideData => {
+export default props => {
   const PrevArrow = props => {
     const { className, onClick } = props;
 
@@ -43,19 +44,18 @@ export default slideData => {
   };
 
   return (
-    slideData && (
+    props.slideData && (
       <SlideContainer>
         <SlideTitle>
-          <Title>세계로 떠나는 여행</Title>
+          <Title>I 💙 SEOUL 💙 YOU </Title>
           <span>더보기</span>
         </SlideTitle>
         <SlideBox>
           <StyledSlider {...settings}>
-            {slideData.slideData.map(card => (
-              <div key={card.id}>
-                <SlideItem src={card.img_url} alt="카드 슬라이드 이미지" />
-              </div>
-            ))}
+            {props.slideData &&
+              props.slideData.map((data, index) => {
+                return <Card key={index} data={data} />;
+              })}
           </StyledSlider>
         </SlideBox>
       </SlideContainer>

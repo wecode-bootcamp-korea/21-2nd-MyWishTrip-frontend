@@ -24,6 +24,7 @@ function Routes() {
         <Route exact path="/product" component={Category} />
         <Route exact path="/detail" component={Detail} />
         <Route exact path="/modal" component={Modal} />
+        <Route exact path="/products" component={Category} />
       </Switch>
       <Footer />
     </Router>

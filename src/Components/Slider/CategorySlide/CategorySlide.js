@@ -4,8 +4,16 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
 import { flexCenter } from '../../../style/mixin';
+import { withRouter } from 'react-router-dom';
 
-export default slideData => {
+export default withRouter(props => {
+  const goToRegion = (region, landmark) => {
+    props.history.push({
+      pathname: `/products`,
+      state: { region: region, landmark: landmark },
+    });
+  };
+
   const PrevArrow = props => {
     const { className, onClick } = props;
 
@@ -43,23 +51,29 @@ export default slideData => {
   };
 
   return (
-    slideData && (
+    props.regionData && (
       <SlideContainer>
         <SlideTitle>
           <Title>어디로 떠나세요?</Title>
         </SlideTitle>
         <SlideBox>
           <StyledSlider {...settings}>
-            {slideData.slideData &&
-              slideData.slideData.map(card => (
-                <div>
-                  <CategoryItem key={card.id}>
-                    <CategoryImg src={card.img_url} alt="카테고리 이미지" />
+            {props.regionData &&
+              props.regionData.map((region, index) => (
+                <div key={region.id}>
+                  <CategoryItem>
+                    <CategoryImg
+                      src={`/images/slideImage/메인${index + 1}.jpg`}
+                      alt="카테고리 이미지"
+                    />
                     <CategoryInfo>
-                      <CategoryTitle>서울</CategoryTitle>
-                      <CategoryCount>000개의 여행상품</CategoryCount>
+                      <CategoryTitle>{region.name}</CategoryTitle>
                     </CategoryInfo>
-                    <CategoryButton>둘러보기</CategoryButton>
+                    <CategoryButton
+                      onClick={() => goToRegion(region.name, region.landmark)}
+                    >
+                      둘러보기
+                    </CategoryButton>
                   </CategoryItem>
                 </div>
               ))}
@@ -68,7 +82,7 @@ export default slideData => {
       </SlideContainer>
     )
   );
-};
+});
 
 const SlideContainer = styled.div`
   display: flex;
@@ -187,7 +201,9 @@ const CategoryImg = styled.img`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  width: 250px;
+  height: 325px;
+  z-index: -1;
 
   &:hover {
     transform: scale(1.1);
@@ -207,6 +223,7 @@ const CategoryInfo = styled.div`
 const CategoryTitle = styled.span`
   margin-bottom: 15px;
   font-size: 24px;
+  color: ${props => props.theme.white};
 `;
 
 const CategoryCount = styled.span`
