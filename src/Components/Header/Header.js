@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { flexCenter } from '../../style/mixin';
 
 const Header = () => (
   <HeaderContainer>
@@ -23,10 +24,8 @@ const Header = () => (
 );
 
 const HeaderContainer = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${props => props.theme.blueBackground};
+  ${flexCenter('flex', 'center', 'center')}
+  background-color: ${props => props.theme.blueMain};
   border-bottom: 1px solid #1683db;
 `;
 
@@ -37,9 +36,7 @@ const HeaderBox = styled.div`
 `;
 
 const HeaderContent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${flexCenter('flex', 'space-between', 'center')}
   margin-bottom: 20px;
 `;
 
