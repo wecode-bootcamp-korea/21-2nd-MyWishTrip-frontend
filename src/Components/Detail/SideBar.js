@@ -33,11 +33,11 @@ export default function SideBar() {
       </SideBarTop>
       <SideBarBottom>
         <GuideWrapper>
-          <GuideProfileImage src="/images/guide-profile.png" alt="photo" />
-          <GuideName>WeGuide 위가이드</GuideName>
+          <GuideProfileImage src="/images/guide_profile.png" alt="photo" />
+          <GuideName>민기스쿨 ScubaDiving</GuideName>
         </GuideWrapper>
         <QuestionWrapper>
-          <MailIcon src="/images/mail.svg" alt="icon" />
+          <MailIcon src="/images/mail_line.svg" alt="icon" />
           <QuestionLink>문의하기</QuestionLink>
         </QuestionWrapper>
       </SideBarBottom>
@@ -46,8 +46,8 @@ export default function SideBar() {
 }
 
 const SideBarWrapper = styled.aside`
-  position: fixed;
-  left: 780px;
+  position: sticky;
+  left: 860px;
   margin-top: 40px;
   width: 320px;
   border: 1px solid #dee2e6;

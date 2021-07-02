@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components/macro';
+import { detailContext } from '../../utils/context';
 import { flexCenter } from '../../style/mixin';
 
 export default function PhotoReview() {
+  const { data } = useContext(detailContext);
   return (
     <PhotoReviewContainer>
       <SectionTitle>여행자 후기 사진</SectionTitle>
@@ -14,7 +16,7 @@ export default function PhotoReview() {
           <Photo src="/images/review2.png" alt="photo" />
         </PhotoLi>
         <PhotoLiLast>
-          <PhotoReviewCount>+25</PhotoReviewCount>
+          <PhotoReviewCount>+10</PhotoReviewCount>
           <Photo src="/images/review_3.png" alt="photo" />
         </PhotoLiLast>
       </PhotoWrapper>
