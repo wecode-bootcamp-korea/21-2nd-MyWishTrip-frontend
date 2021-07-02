@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { inputStyle, inputText } from '../../style/mixin';
 import { Link } from 'react-router-dom';
+import { flexCenter } from '../../style/mixin';
 
 export default function LoginEmail() {
   return (
-    <>
+    <LoginEmailWrapper>
       <LoginEmailContainer>
         <Email>이메일 *</Email>
         <EmailInput></EmailInput>
@@ -17,9 +18,14 @@ export default function LoginEmail() {
           <SignupLink to="/signup">회원가입</SignupLink>
         </SignupText>
       </LoginEmailContainer>
-    </>
+    </LoginEmailWrapper>
   );
 }
+
+const LoginEmailWrapper = styled.div`
+  ${flexCenter('flex', 'center', 'center')}
+  margin: 50px 0px;
+`;
 
 const LoginEmailContainer = styled.div`
   padding: 48px;

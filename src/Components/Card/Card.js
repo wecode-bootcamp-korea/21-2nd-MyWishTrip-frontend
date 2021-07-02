@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
+import { withRouter } from 'react-router';
 import styled from 'styled-components';
 import { flexCenter } from '../../style/mixin';
 
 const Card = props => {
   const [isLiked, setLike] = useState(false);
 
+  const goToDetail = () => {
+    const { id } = props.data;
+    props.history.push(`/products/detail/${id}`);
+  };
   return (
-    <CardContainer>
+    <CardContainer onClick={goToDetail}>
       <CardImage src={props.data.main_image} alt={props.data.name} />
       <LikeImage
         src={
@@ -47,6 +52,7 @@ const CardContainer = styled.div`
   position: relative;
   border: 1px solid ${props => props.theme.lineGray};
   border-radius: 4px;
+  cursor: pointer;
 `;
 
 const CardImage = styled.img`
@@ -128,4 +134,4 @@ const MemberLimit = styled.span`
   margin-left: 4px;
 `;
 
-export default Card;
+export default withRouter(Card);

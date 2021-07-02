@@ -63,7 +63,7 @@ export default withRouter(props => {
                 <div key={region.id}>
                   <CategoryItem>
                     <CategoryImg
-                      src={`/images/slideImage/메인${index + 1}.jpg`}
+                      src={`/images/slideImage/메인${index + 1}.png`}
                       alt="카테고리 이미지"
                     />
                     <CategoryInfo>
@@ -224,10 +224,6 @@ const CategoryTitle = styled.span`
   margin-bottom: 15px;
   font-size: 24px;
   color: ${props => props.theme.white};
-`;
-
-const CategoryCount = styled.span`
-  font-size: 18px;
 `;
 
 const CategoryButton = styled.button`

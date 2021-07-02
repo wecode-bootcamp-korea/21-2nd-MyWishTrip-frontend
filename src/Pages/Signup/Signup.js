@@ -6,32 +6,39 @@ import LoginLinkWrapper from '../../Components/LoginLinkWrapper';
 
 export default function Signup() {
   return (
-    <SignupContainer>
-      <HelloImage src="/images/waving-hand.png" />
-      <Title>반갑습니다!</Title>
-      <Paragraph>여행의 모든 것, 마이위시트립</Paragraph>
-      <Button>
-        <KakaoIcon src="/images/kakao.svg" />
-        카카오로 계속하기
-      </Button>
-      <LoginLinkContainer>
-        {LINK_DATA &&
-          LINK_DATA.map((link, index) => {
-            return (
-              <>
-                <LoginLinkWrapper link={link} key={index}></LoginLinkWrapper>
-                {index !== LINK_DATA.length - 1 && <Bar>|</Bar>}
-              </>
-            );
-          })}
-      </LoginLinkContainer>
-      <SignupText>
-        이미 아이디가 있으신가요?
-        <SignupLink to="/signin">로그인</SignupLink>
-      </SignupText>
-    </SignupContainer>
+    <SignupWrapper>
+      <SignupContainer>
+        <HelloImage src="/images/waving-hand.png" />
+        <Title>반갑습니다!</Title>
+        <Paragraph>여행의 모든 것, 마이위시트립</Paragraph>
+        <Button>
+          <KakaoIcon src="/images/kakao.svg" />
+          카카오로 계속하기
+        </Button>
+        <LoginLinkContainer>
+          {LINK_DATA &&
+            LINK_DATA.map((link, index) => {
+              return (
+                <>
+                  <LoginLinkWrapper link={link} key={index}></LoginLinkWrapper>
+                  {index !== LINK_DATA.length - 1 && <Bar>|</Bar>}
+                </>
+              );
+            })}
+        </LoginLinkContainer>
+        <SignupText>
+          이미 아이디가 있으신가요?
+          <SignupLink to="/signin">로그인</SignupLink>
+        </SignupText>
+      </SignupContainer>
+    </SignupWrapper>
   );
 }
+
+const SignupWrapper = styled.div`
+  ${flexCenter('flex', 'center', 'center')}
+  margin: 50px 0px;
+`;
 
 const SignupContainer = styled.div`
   ${flexCenter('flex', 'center', 'center')}

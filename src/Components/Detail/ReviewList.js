@@ -14,7 +14,7 @@ export default function ReviewList(props) {
       <ReviewParagraph>{contents}</ReviewParagraph>
       <ReviewReply>
         <ReplyWrapper>
-          <ReplyIcon src="images/reply.svg" alt="icon" />
+          <ReplyIcon src="/images/reply.svg" alt="icon" />
           <ReplyUser>민기스쿨</ReplyUser>
         </ReplyWrapper>
         <ReviewParagraph>{manager_text}</ReviewParagraph>

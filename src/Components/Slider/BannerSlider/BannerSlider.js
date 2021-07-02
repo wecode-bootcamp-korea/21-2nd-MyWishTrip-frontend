@@ -20,7 +20,7 @@ export default () => {
     <SlideContainer>
       <StyledSlider {...settings}>
         {DUMMY_SLIDE_IMAGE &&
-          DUMMY_SLIDE_IMAGE.map(dimg => (
+          DUMMY_SLIDE_IMAGE.map((dimg, index) => (
             <SlideItem
               key={dimg.id}
               src={dimg.image_url}
@@ -61,36 +61,14 @@ const SlideItem = styled.img`
 const DUMMY_SLIDE_IMAGE = [
   {
     id: 1,
-    image_url:
-      'https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-flat-pink-e-commerce-banner-background-image_163039.jpg',
+    image_url: '/images/배너1.png',
   },
   {
     id: 2,
-    image_url:
-      'https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-taobao-women-s-banner-background-image_154329.jpg',
+    image_url: '/images/배너2.png',
   },
   {
     id: 3,
-    image_url:
-      'https://png.pngtree.com/thumb_back/fw800/back_pic/05/13/06/41599d2ab7d742f.jpg',
-  },
-  {
-    id: 4,
-    image_url:
-      'https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-summer-refreshing-banner-background-claritycandycute-backgroundsummer-image_52755.jpg',
-  },
-  {
-    id: 5,
-    image_url:
-      'https://png.pngtree.com/thumb_back/fw800/back_our/20200701/ourmid/pngtree-simple-memphis-banner-background-image_345834.jpg',
-  },
-  {
-    id: 6,
-    image_url: 'https://img.lovepik.com/photo/50045/2454.jpg_wh860.jpg',
-  },
-  {
-    id: 7,
-    image_url:
-      'https://blog.kakaocdn.net/dn/Rb5PG/btqCjSxEdGn/SulgKzVr3Bdo2pnrBCGRLk/img.png',
+    image_url: '/images/배너3.png',
   },
 ];

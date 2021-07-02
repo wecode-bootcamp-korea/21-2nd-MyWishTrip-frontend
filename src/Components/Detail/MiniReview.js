@@ -11,8 +11,6 @@ export default function MiniReview() {
 
   const { data } = useContext(detailContext);
 
-  console.log(data.product?.reviews[0].contents);
-
   return (
     <MiniReviewContainer>
       <MiniReviewLeft>
