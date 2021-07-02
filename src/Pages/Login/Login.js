@@ -13,7 +13,7 @@ export default function Login() {
     Kakao.Auth.login({
       success: function (response) {
         axios
-          .get('http://10.58.2.238:8000/users/social-login', {
+          .get('http://10.58.6.32:8000/users/social-login', {
             headers: {
               'Content-Type': 'application/json',
               Authorization: response.access_token,
@@ -32,8 +32,9 @@ export default function Login() {
       },
     });
   };
+
   return (
-    <>
+    <LoginWrapper>
       <LoginContainer>
         <HelloImage src="/images/waving-hand.png" />
         <Title>Welcome!</Title>
@@ -56,9 +57,14 @@ export default function Login() {
           <SignupLink to="/signup">회원가입</SignupLink>
         </SignupText>
       </LoginContainer>
-    </>
+    </LoginWrapper>
   );
 }
+
+const LoginWrapper = styled.div`
+  ${flexCenter('flex', 'center', 'center')}
+  margin: 50px 0px;
+`;
 
 const LoginContainer = styled.div`
   ${flexCenter('flex', 'center', 'center')}

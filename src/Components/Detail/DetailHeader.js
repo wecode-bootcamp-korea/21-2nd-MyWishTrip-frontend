@@ -10,8 +10,8 @@ export default function DetailHeader() {
       <HeaderContainer>
         <LocationWrapper>
           <DetailLocation>대한민국</DetailLocation>
-          <RightArrow src="images/right-arrow.svg" alt="icon" />
-          <LocationIcon src="images/location_fill.svg" alt="icon" />
+          <RightArrow src="/images/right-arrow.svg" alt="icon" />
+          <LocationIcon src="/images/location_fill.svg" alt="icon" />
           <DetailLocation>제주도</DetailLocation>
         </LocationWrapper>
         <DetailTitle>{data.product?.name}</DetailTitle>

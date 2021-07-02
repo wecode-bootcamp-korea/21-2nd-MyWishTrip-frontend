@@ -5,8 +5,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
 import Card from '../../Card/Card';
 import { flexCenter } from '../../../style/mixin';
+import { withRouter } from 'react-router';
 
-const CardSlider = ({ slideData }) => {
+const CardSlider = ({ slideData, history }) => {
   const PrevArrow = props => {
     const { className, onClick } = props;
 
@@ -43,8 +44,6 @@ const CardSlider = ({ slideData }) => {
     nextArrow: <NextArrow />,
   };
 
-  console.log(slideData);
-
   return (
     slideData && (
       <SlideContainer>
@@ -56,7 +55,7 @@ const CardSlider = ({ slideData }) => {
           <StyledSlider {...settings}>
             {slideData &&
               slideData.map((data, index) => {
-                return <Card key={index} data={data} />;
+                return <Card key={index} data={data} id={data.id} />;
               })}
           </StyledSlider>
         </SlideBox>
@@ -65,7 +64,7 @@ const CardSlider = ({ slideData }) => {
   );
 };
 
-export default CardSlider;
+export default withRouter(CardSlider);
 const SlideContainer = styled.div`
   display: flex;
   flex-direction: column;

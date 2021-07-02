@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { validateEmail } from './emailValidator';
 import usePasswordValidator from './usePasswordValidator';
 import styled from 'styled-components/macro';
-import { inputStyle, inputText } from '../../style/mixin';
+import { flexCenter, inputStyle, inputText } from '../../style/mixin';
 
 export default function SignupEmail() {
   const [name, setName] = useState('');
@@ -48,7 +48,7 @@ export default function SignupEmail() {
 
   const fetchToData = () => {
     allValid &&
-      fetch('http://10.58.1.194:8000/users/signup', {
+      fetch('http://10.58.6.32:8000/users/signup', {
         method: 'POST',
         body: JSON.stringify({
           name,
@@ -70,9 +70,8 @@ export default function SignupEmail() {
     password !== '' &&
     confirmPassword !== '';
 
-  console.log(validateEmail(email), password, confirmPassword);
   return (
-    <>
+    <SignupWrapper>
       <SignupEmailContainer>
         <Label>이름 *</Label>
         <NameInput onChange={e => setName(e.target.value)} />
@@ -93,9 +92,14 @@ export default function SignupEmail() {
           <SignupButtonInvalid>회원가입</SignupButtonInvalid>
         )}
       </SignupEmailContainer>
-    </>
+    </SignupWrapper>
   );
 }
+
+const SignupWrapper = styled.div`
+  ${flexCenter('flex', 'center', 'center')}
+  margin: 50px 0px;
+`;
 
 const SignupEmailContainer = styled.div`
   padding: 48px;

@@ -13,7 +13,7 @@ import Information from '../../Components/Detail/Information';
 import { detailContext } from '../../utils/context';
 import { flexCenter } from '../../style/mixin';
 
-export default function Detail() {
+export default function Detail(props) {
   const [amount, setAmount] = useState(0);
   const [isModalClicked, setIsModalClicked] = useState(false);
   const [data, setData] = useState([]);
@@ -39,7 +39,8 @@ export default function Detail() {
   //http://10.58.3.147:8000/products/18
 
   useEffect(() => {
-    axios.get('http://52.79.237.167:8000/products/18').then(res => {
+    const id = props.match.params.id;
+    axios.get(`http://52.79.237.167:8000/products/${id}`).then(res => {
       setData(res.data);
     });
 

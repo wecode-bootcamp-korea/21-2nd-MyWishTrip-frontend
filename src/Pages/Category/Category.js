@@ -120,6 +120,7 @@ const Category = props => {
     categoryData && (
       <CategoryContainer>
         <MenuContainer>
+          <MenuMainTitle>{`'${filter.region}' 검색결과`}</MenuMainTitle>
           <MenuTitle>카테고리</MenuTitle>
           <CategoryMenu
             selectCategory={item => handleFilter('subCategory', item)}
@@ -179,11 +180,17 @@ const CategoryContainer = styled.div`
   ${flexCenter('flex', 'center', 'flex-start')}
   width: 1060px;
   margin: 0px auto;
-  margin-top: 50px;
+  margin-top: 30px;
 `;
 
 const MenuContainer = styled.div`
   margin-right: 20px;
+`;
+
+const MenuMainTitle = styled.h1`
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: bold;
 `;
 
 const MenuTitle = styled.h2`
@@ -198,6 +205,7 @@ const FilterContainer = styled.div`
 
 const CategoryPage = styled.div`
   width: 790px;
+  margin-top: 60px;
 `;
 
 const SortMenu = styled.ul`

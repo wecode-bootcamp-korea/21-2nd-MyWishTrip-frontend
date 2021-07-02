@@ -9,6 +9,7 @@ import LoginEmail from './Pages/Login/LoginEmail';
 import Category from './Pages/Category/Category';
 import Detail from './Pages/Detail/Detail';
 import Modal from './Components/Detail/Modal';
+import Loader from './Components/Loader/Loader';
 
 function Routes() {
   return (
@@ -22,9 +23,10 @@ function Routes() {
         <Route exact path="/signin_email" component={LoginEmail} />
         <Route exact path="/siginin" component={Login} />
         <Route exact path="/product" component={Category} />
-        <Route exact path="/detail" component={Detail} />
+        <Route exact path="/products/detail/:id" component={Detail} />
         <Route exact path="/modal" component={Modal} />
         <Route exact path="/products" component={Category} />
+        <Route exact paht="/loader" component={Loader} />
       </Switch>
       <Footer />
     </Router>

@@ -4,8 +4,18 @@ import styled from 'styled-components';
 import { flexCenter } from '../../style/mixin';
 
 const Header = ({ location: { pathname }, history }) => {
+  const loginToken = localStorage.getItem('token');
+
+  const goToSignIn = () => {
+    history.push('/signin');
+  };
+
   const goToMain = () => {
     history.push('/');
+  };
+
+  const goToSignup = () => {
+    history.push('/signup');
   };
 
   return (
@@ -23,8 +33,12 @@ const Header = ({ location: { pathname }, history }) => {
           />
           <ButtonBox>
             <SLink home={pathname === '/'}>파트너로 등록하기</SLink>
-            <SLink home={pathname === '/'}>로그인</SLink>
-            <Signup home={pathname === '/'}>회원가입</Signup>
+            <SLink home={pathname === '/'} onClick={goToSignIn}>
+              {`${loginToken ? '위시리스트' : '로그인'}`}
+            </SLink>
+            <Signup home={pathname === '/'} onClick={goToSignup}>
+              {`${loginToken ? `마이페이지` : `회원가입`}`}
+            </Signup>
           </ButtonBox>
         </HeaderContent>
         <NavList>
@@ -72,6 +86,7 @@ const SLink = styled.span`
   margin-right: 30px;
   color: ${props =>
     props.home ? props.theme.white : props.theme.fontDarkGray};
+  cursor: pointer;
 `;
 
 const Signup = styled.button`
@@ -82,6 +97,7 @@ const Signup = styled.button`
     ${props => (props.home ? props.theme.white : props.theme.blueMain)};
   border-radius: 2px;
   color: ${props => (props.home ? props.theme.white : props.theme.blueMain)};
+  cursor: pointer;
 `;
 
 const NavList = styled.ul`
