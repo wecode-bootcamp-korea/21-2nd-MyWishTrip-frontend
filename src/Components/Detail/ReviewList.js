@@ -3,15 +3,22 @@ import styled from 'styled-components/macro';
 import { flexCenter } from '../../style/mixin';
 
 export default function ReviewList(props) {
-  const { score, user, create_at, contents } = props.review;
+  const { score, user, create_at, contents, manager_text } = props.review;
   return (
     <ReviewListWrapper>
       <StarUserWrapper>
-        <ReviewStar>{score}</ReviewStar>
+        <ReviewStar>{'★'.repeat(score)}</ReviewStar>
         <ReviewUser>{user}</ReviewUser>
       </StarUserWrapper>
-      <UserDescription>{create_at}</UserDescription>
+      <UserDescription>{create_at.slice(0, 10)}</UserDescription>
       <ReviewParagraph>{contents}</ReviewParagraph>
+      <ReviewReply>
+        <ReplyWrapper>
+          <ReplyIcon src="images/reply.svg" alt="icon" />
+          <ReplyUser>민기스쿨</ReplyUser>
+        </ReplyWrapper>
+        <ReviewParagraph>{manager_text}</ReviewParagraph>
+      </ReviewReply>
       <GrayLine></GrayLine>
     </ReviewListWrapper>
   );
@@ -49,7 +56,7 @@ const UserDescription = styled.div`
 
 const ReviewParagraph = styled.p`
   color: ${({ theme }) => theme.fontBlack};
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   font-size: 15px;
   line-height: 25px;
 `;
@@ -57,4 +64,24 @@ const ReviewParagraph = styled.p`
 const GrayLine = styled.div`
   width: 700px;
   border-top: 1px solid #dee2e6;
+`;
+
+const ReviewReply = styled.div`
+  margin: 10px 24px;
+`;
+
+const ReplyWrapper = styled.div`
+  ${flexCenter('flex', 'flex-start', 'center')}
+  margin-bottom:10px;
+`;
+
+const ReplyIcon = styled.img`
+  margin-right: 5px;
+`;
+
+const ReplyUser = styled.div`
+  margin-top: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.fontBlack};
 `;

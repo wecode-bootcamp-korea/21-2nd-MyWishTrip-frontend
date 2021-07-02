@@ -3,10 +3,10 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
-import { flexCenter } from '../../../style/mixin';
 import Card from '../../Card/Card';
+import { flexCenter } from '../../../style/mixin';
 
-export default props => {
+const CardSlider = ({ slideData }) => {
   const PrevArrow = props => {
     const { className, onClick } = props;
 
@@ -43,17 +43,19 @@ export default props => {
     nextArrow: <NextArrow />,
   };
 
+  console.log(slideData);
+
   return (
-    props.slideData && (
+    slideData && (
       <SlideContainer>
         <SlideTitle>
-          <Title>I 💙 SEOUL 💙 YOU </Title>
+          <Title>여기는 어때요?</Title>
           <span>더보기</span>
         </SlideTitle>
         <SlideBox>
           <StyledSlider {...settings}>
-            {props.slideData &&
-              props.slideData.map((data, index) => {
+            {slideData &&
+              slideData.map((data, index) => {
                 return <Card key={index} data={data} />;
               })}
           </StyledSlider>
@@ -63,6 +65,7 @@ export default props => {
   );
 };
 
+export default CardSlider;
 const SlideContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,8 +79,8 @@ const SlideBox = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
 `;
 
 const SlideTitle = styled.span`

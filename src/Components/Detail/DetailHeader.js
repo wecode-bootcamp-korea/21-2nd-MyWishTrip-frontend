@@ -10,6 +10,8 @@ export default function DetailHeader() {
       <HeaderContainer>
         <LocationWrapper>
           <DetailLocation>대한민국</DetailLocation>
+          <RightArrow src="images/right-arrow.svg" alt="icon" />
+          <LocationIcon src="images/location_fill.svg" alt="icon" />
           <DetailLocation>제주도</DetailLocation>
         </LocationWrapper>
         <DetailTitle>{data.product?.name}</DetailTitle>
@@ -36,10 +38,20 @@ const LocationWrapper = styled.div`
 `;
 
 const DetailLocation = styled.span`
-  padding: 6px;
+  padding: 6px 8px 6px 0px;
   font-size: 14px;
   font-weight: 600;
   color: ${({ theme }) => theme.fontGray};
+`;
+
+const RightArrow = styled.img`
+  margin: 0px 5px 2px 0px;
+  height: 16px;
+`;
+
+const LocationIcon = styled.img`
+  margin: 0px 5px 3px 0px;
+  height: 16px;
 `;
 
 const DetailTitle = styled.h1`
