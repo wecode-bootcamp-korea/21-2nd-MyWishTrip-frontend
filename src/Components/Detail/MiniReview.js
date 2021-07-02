@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components/macro';
 import { flexCenter } from '../../style/mixin';
+import { detailContext } from '../../utils/context';
 import MoreButton from '../MoreButton';
 
 export default function MiniReview() {
@@ -8,25 +9,26 @@ export default function MiniReview() {
     window.scrollTo(0, 3300, 'smooth');
   };
 
+  const { data } = useContext(detailContext);
+
+  console.log(data.product?.reviews[0].contents);
+
   return (
     <MiniReviewContainer>
       <MiniReviewLeft>
-        <MiniReviewScore>5.0</MiniReviewScore>
+        <MiniReviewScore>{data.product?.total_score}</MiniReviewScore>
         <MiniReviewStar>★★★★★</MiniReviewStar>
-        <MiniReviewCount>후기 250개</MiniReviewCount>
+        <MiniReviewCount>후기 {data.product?.total_review}</MiniReviewCount>
       </MiniReviewLeft>
       <MiniReviewRight>
         <StarUserWrapper>
           <RightReviewStar>★★★★★</RightReviewStar>
-          <RightReviewUser>So*****</RightReviewUser>
+          <RightReviewUser>{data.product?.reviews[0].user}</RightReviewUser>
         </StarUserWrapper>
-        <RightDescription>20대·여행·2021-06-18</RightDescription>
-        <ReviewParagraph>
-          본태박물관을 도슨트투어 없이 관람하는 것은 무의미하다고 생각합니다!
-          특히 김현근 가이드님의 쉽고 재밌는 설명 덕분에 3시간이 넘은
-          시간이었음에도 시간 가는 줄 모르고 몰입할 수 있었어요! 다음에 다른
-          도슨트 투어를 하신다면 꼭 신청하겠습니다!!
-        </ReviewParagraph>
+        <RightDescription>
+          {data.product?.reviews[0].create_at.slice(0, 10)}
+        </RightDescription>
+        <ReviewParagraph>{data.product?.reviews[0].contents}</ReviewParagraph>
         <MoreButton onClick={MoveToReview}>후기 250개 전체 보기</MoreButton>
       </MiniReviewRight>
     </MiniReviewContainer>
@@ -39,6 +41,7 @@ const MiniReviewContainer = styled.section`
   width: 700px;
   padding: 32px 0px;
   border-top: 1px solid ${({ theme }) => theme.lineGray};
+  border-bottom: 1px solid ${({ theme }) => theme.lineGray};
 `;
 
 const MiniReviewLeft = styled.div`

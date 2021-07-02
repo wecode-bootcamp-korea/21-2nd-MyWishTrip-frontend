@@ -5,7 +5,6 @@ import CardSlider from '../../Components/Slider/CardSlider/CardSlider';
 import CategorySlide from '../../Components/Slider/CategorySlide/CategorySlide';
 import { flexCenter } from '../../style/mixin';
 import { RegionApi, SlideApi } from '../../api';
-import Loader from '../../Components/Loader/Loader';
 
 const Main = () => {
   const [slideData, setSlideData] = useState([]);

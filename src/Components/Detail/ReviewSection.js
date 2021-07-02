@@ -12,11 +12,11 @@ export default function ReviewSection() {
     <ReviewContainer>
       <TitleWrapper>
         <SectionTitle>후기</SectionTitle>
-        <ReviewCount>251</ReviewCount>
+        <ReviewCount>{data.product?.total_review}</ReviewCount>
       </TitleWrapper>
       <ReviewWrapper>
         <StartScoreWrapper>
-          <Score>5.0</Score>
+          <Score>{data.product?.total_score}</Score>
           <Star>★★★★★</Star>
         </StartScoreWrapper>
         <RatingWrapper>
@@ -34,14 +34,14 @@ export default function ReviewSection() {
       </ReviewWrapper>
       <UserReviewWrapper>
         {data &&
-          data.product?.reviews?.map((reveiw, index) => (
-            <ReviewList key={index} review={reveiw} />
+          data.product?.reviews?.map((review, index) => (
+            <ReviewList key={index} review={review} />
           ))}
       </UserReviewWrapper>
-      <MoreButtonWrapper>
+      {/* <MoreButtonWrapper>
         <MoreButton>후기 더 보기</MoreButton>
         <MoreGradient></MoreGradient>
-      </MoreButtonWrapper>
+      </MoreButtonWrapper> */}
     </ReviewContainer>
   );
 }
@@ -171,8 +171,8 @@ const MoreGradient = styled.div`
 `;
 
 const STAR_RATING = [
-  { star: '★★★★★', rating: 100, count: 242 },
-  { star: '★★★★', rating: 0, count: 8 },
+  { star: '★★★★★', rating: 100, count: 4 },
+  { star: '★★★★', rating: 0, count: 1 },
   { star: '★★★', rating: 0, count: 1 },
   { star: '★★', rating: 0, count: 0 },
   { star: '★', rating: 0, count: 0 },
