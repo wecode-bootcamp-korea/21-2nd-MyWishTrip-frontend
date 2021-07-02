@@ -27,3 +27,8 @@ export const inputText = css`
   color: #495056;
   font-weight: 500;
 `;
+
+export const Icon = css`
+  width: 16px;
+  margin: 0px 10px;
+`;

@@ -11,5 +11,4 @@ const theme = {
   fontGray: '#848c94',
   lineGray: '#e8ecef',
 };
-
 export default theme;
