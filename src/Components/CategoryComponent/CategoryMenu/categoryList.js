@@ -12,7 +12,7 @@ export default [
     ],
   },
   {
-    categoryName: '투어',
+    categoryName: '입장권',
     categoryItem: [
       '전체보기',
       '버스투어',
@@ -27,7 +27,7 @@ export default [
     ],
   },
   {
-    categoryName: '투어',
+    categoryName: '액티비티',
     categoryItem: [
       '전체보기',
       '버스투어',
@@ -42,7 +42,7 @@ export default [
     ],
   },
   {
-    categoryName: '투어',
+    categoryName: '클래스',
     categoryItem: [
       '전체보기',
       '버스투어',
@@ -53,7 +53,7 @@ export default [
     ],
   },
   {
-    categoryName: '투어',
+    categoryName: '스냅촬영',
     categoryItem: [
       '전체보기',
       '버스투어',
@@ -64,7 +64,7 @@ export default [
     ],
   },
   {
-    categoryName: '투어',
+    categoryName: '미식',
     categoryItem: [
       '전체보기',
       '버스투어',
@@ -75,7 +75,7 @@ export default [
     ],
   },
   {
-    categoryName: '투어',
+    categoryName: '스파/힐링',
     categoryItem: [
       '전체보기',
       '버스투어',
@@ -88,7 +88,20 @@ export default [
     ],
   },
   {
-    categoryName: '투어',
+    categoryName: '이동/교통편의',
+    categoryItem: [
+      '전체보기',
+      '버스투어',
+      '시내투어',
+      '미술관투어',
+      '오디오투어',
+      '야경투어',
+      '자연투어',
+      '맞춤투어',
+    ],
+  },
+  {
+    categoryName: '대여',
     categoryItem: [
       '전체보기',
       '버스투어',

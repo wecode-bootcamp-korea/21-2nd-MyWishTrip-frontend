@@ -12,7 +12,7 @@ import Card from '../../Components/Card/Card';
 const Category = props => {
   const [toggleCalender, setToggleCalender] = useState(false);
   const [filter, setFilter] = useState({
-    region: '경상도',
+    region: props.location.state.region,
     mainCategory: '',
     subCategory: '',
     price: [3000, 750000],
@@ -21,6 +21,7 @@ const Category = props => {
     rating: '',
     landmark: [],
   });
+  const [sort, setSort] = useState('');
   const [categoryData, setCategoryData] = useState([]);
 
   const makeQueryString = obj => {
@@ -60,6 +61,11 @@ const Category = props => {
     score: filter.rating,
   };
 
+  const handleSort = event => {
+    const { id } = event.target;
+    setSort(`&sort=${id}`);
+  };
+
   const handleToggleCalender = () => {
     setToggleCalender(true);
   };
@@ -94,17 +100,21 @@ const Category = props => {
   };
 
   const rePecthUrl = queryObj => {
-    const qpm = makeQueryString(queryObj);
+    const qpm = makeQueryString(queryObj) + sort;
     FilterApi(qpm).then(response => setCategoryData(response.data.products));
     props.history.push({
-      pathname: '/product',
+      pathname: '/products',
       search: qpm,
+      state: {
+        region: props.location.state.region,
+        landmark: props.location.state.landmark,
+      },
     });
   };
 
   useEffect(() => {
     rePecthUrl(queryObj);
-  }, [filter]);
+  }, [filter, sort]);
 
   return (
     categoryData && (
@@ -134,14 +144,31 @@ const Category = props => {
               />
               <CategoryCheck handleRatingClick={handleRatingClick} />
               <LandMark
-                landmarkTitle={DUMMY_LandMark}
+                landmarkTitle={props.location.state.landmark}
                 handleLandmarkClick={handleLandmarkClick}
               />
             </FilterBox>
           </FilterContainer>
         </MenuContainer>
         <CategoryPage>
-          <Card cardData={categoryData} />
+          <SortMenu>
+            {SORT_MENU_ITEM.map((menu, index) => (
+              <SortMenuItem key={index}>
+                <SortMenuText
+                  id={menu.query}
+                  onClick={event => handleSort(event)}
+                >
+                  {menu.sortText}
+                </SortMenuText>
+              </SortMenuItem>
+            ))}
+          </SortMenu>
+          <CardContainer>
+            {categoryData &&
+              categoryData.map((data, index) => {
+                return <Card key={index} data={data} />;
+              })}
+          </CardContainer>
         </CategoryPage>
       </CategoryContainer>
     )
@@ -169,13 +196,62 @@ const FilterContainer = styled.div`
   width: 250px;
 `;
 
-const CategoryPage = styled.div``;
+const CategoryPage = styled.div`
+  width: 790px;
+`;
+
+const SortMenu = styled.ul`
+  ${flexCenter('flex', 'flex-end', 'center')}
+  margin-bottom: 20px;
+`;
+
+const SortMenuItem = styled.li`
+  display: list-item;
+  list-style: inside;
+  margin-right: 20px;
+  font-size: 14px;
+  color: ${props => props.theme.fontDarkGray};
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+`;
+
+const SortMenuText = styled.span`
+  position: relative;
+  left: -8px;
+`;
 
 const FilterBox = styled.div`
   padding: 0px 16px;
   border: 1px solid ${props => props.theme.lineGray};
 `;
 
-const DUMMY_LandMark = ['올레', '성산', '연동', '서귀포'];
+const CardContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 20px;
+`;
+
+const SORT_MENU_ITEM = [
+  {
+    sortText: '낮은 가격순',
+    query: 'price_ASC',
+  },
+  {
+    sortText: '높은 가격순',
+    query: 'price_DESC',
+  },
+  {
+    sortText: '평점 높은순',
+    query: 'average_review_score',
+  },
+  {
+    sortText: '신상품순',
+    query: 'recent',
+  },
+];
 
 export default Category;

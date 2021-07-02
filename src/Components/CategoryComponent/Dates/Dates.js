@@ -16,15 +16,6 @@ const Dates = props => {
     return `${date.getMonth() + 1}월 ${date.getDate()}일`;
   };
 
-  const changeDateString = date => {
-    date = new Date(date);
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    return `${date.getFullYear()}-${month < 10 ? `0${month}` : month}-${
-      day < 10 ? `0${day}` : day
-    }`;
-  };
-
   const handleCloseClick = () => {
     props.setCalenderDate(startDate, endDate);
   };
@@ -43,8 +34,8 @@ const Dates = props => {
   const MyContainer = ({ children }) => {
     return (
       <CalendarContainer>
-        <CalenderBox>{children}</CalenderBox>
-        <CalenderButtonContainer>
+        <CalendarBox>{children}</CalendarBox>
+        <CalendarButtonContainer>
           <CalendarButtonBox>
             <ClearButton onClick={handleCloseModal}>초기화</ClearButton>
             <SetCalenderButton
@@ -54,23 +45,23 @@ const Dates = props => {
               적용하기
             </SetCalenderButton>
           </CalendarButtonBox>
-        </CalenderButtonContainer>
+        </CalendarButtonContainer>
       </CalendarContainer>
     );
   };
 
   return (
-    <SelectCalenderContainer>
-      <CalenderSelectTab>
+    <SelectCalendarContainer>
+      <CalendarSelectTab>
         <Schedule>일정</Schedule>
-        <CalenderOpenButton onClick={props.handleToggleCalender}>
+        <CalendarOpenButton onClick={props.handleToggleCalender}>
           {props.selectedStart && props.selectedEnd
             ? `${formatDate(props.selectedStart)} ~ ${formatDate(
                 props.selectedEnd
               )}`
             : '날짜선택'}
-        </CalenderOpenButton>
-      </CalenderSelectTab>
+        </CalendarOpenButton>
+      </CalendarSelectTab>
       {props.toggleCalender && (
         <DatePicker
           selected={startDate}
@@ -87,11 +78,11 @@ const Dates = props => {
           showDisabledMonthNavigation
         />
       )}
-    </SelectCalenderContainer>
+    </SelectCalendarContainer>
   );
 };
 
-const SelectCalenderContainer = styled.div`
+const SelectCalendarContainer = styled.div`
   position: relative;
   width: 100%;
   padding: 24px 0px;
@@ -99,7 +90,7 @@ const SelectCalenderContainer = styled.div`
   z-index: 10;
 `;
 
-const CalenderSelectTab = styled.div`
+const CalendarSelectTab = styled.div`
   ${flexCenter('flex', 'space-between', 'center')}
   width: 100%;
 `;
@@ -108,7 +99,7 @@ const Schedule = styled.span`
   font-size: 15px;
 `;
 
-const CalenderOpenButton = styled.button`
+const CalendarOpenButton = styled.button`
   all: unset;
   padding: 4px 6px;
   color: ${props => props.theme.blueMain};
@@ -128,7 +119,7 @@ const CalendarContainer = styled.div`
   height: 392px;
 `;
 
-const CalenderBox = styled.div`
+const CalendarBox = styled.div`
   display: flex;
   position: relative;
   width: 100%;
@@ -254,7 +245,7 @@ const CalenderBox = styled.div`
   }
 `;
 
-const CalenderButtonContainer = styled.div`
+const CalendarButtonContainer = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
